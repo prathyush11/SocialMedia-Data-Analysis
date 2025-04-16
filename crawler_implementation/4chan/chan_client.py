@@ -55,12 +55,6 @@ class ChanClient:
     This executes an http request and returns json
     """
 
-    # def execute_request(self, api_call):
-    #     resp = requests.get(api_call)  # error handling neede
-    #     logger.info(resp.status_code)
-    #     json = resp.json()  # error handling neede
-    #     logger.info(f"json: {json}")
-    #     return json
     def execute_request(self, api_call):
         try:
             resp = requests.get(api_call)
