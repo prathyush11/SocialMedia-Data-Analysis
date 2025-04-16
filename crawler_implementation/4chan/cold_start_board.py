@@ -13,18 +13,6 @@ sh.setFormatter(formatter)
 logger.addHandler(sh)
 
 
-# if __name__ == "__main__":
-#     board = [sys.argv[1],sys.argv[2]]
-#     print(f"Cold starting catalog crawl for board {board}")
-#     # Default url for a Faktory server running locally
-#     faktory_server_url = "tcp://:password@localhost:7419"
-
-#     with Client(faktory_url=faktory_server_url, role="producer") as client:
-#         producer = Producer(client=client)
-#         job = Job(jobtype="crawl-catalog", args=(board,), queue="crawl-catalog")
-#         producer.push(job)
-
-
 if __name__ == "__main__":
     boards = [sys.argv[1],sys.argv[2]]  # List of boards to crawl
     print(f"Cold starting catalog crawl for boards {boards}")
