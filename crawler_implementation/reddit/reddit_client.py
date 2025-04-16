@@ -22,8 +22,6 @@ class RedditClient:
         try:
             auth = requests.auth.HTTPBasicAuth(self.client_id, self.client_secret)
             data = {'grant_type': 'client_credentials'}
-            # data = {'grant_type': 'password','password': 'echosocial'}
-            # data = {'grant_type': 'password', 'username': 'Wrong-Season-4271', 'password': 'echosocial'}
             headers = {'User-Agent': self.user_agent}
             res = requests.post('https://www.reddit.com/api/v1/access_token', auth=auth, data=data, headers=headers)
             res.raise_for_status()
