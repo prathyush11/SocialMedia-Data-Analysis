@@ -23,16 +23,3 @@ if __name__ == "__main__":
         for subreddit in subreddits:
             job = Job(jobtype="crawl-subreddit", args=(subreddit,), queue="crawl-subreddit")
             producer.push(job)
-
-
-# if __name__ == "__main__":
-#     subreddits = sys.argv[1]
-#     print(f"Cold starting crawl for subreddits {subreddits}")
-
-#     faktory_server_url = "tcp://:password@localhost:7429"
-
-#     with Client(faktory_url=faktory_server_url, role="producer") as client:
-#         producer = Producer(client=client)
-#         job = Job(jobtype="crawl-subreddit", args=(subreddits,), queue="crawl-subreddit")
-#         producer.push(job)
-
