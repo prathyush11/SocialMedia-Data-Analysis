@@ -64,38 +64,6 @@ Insert the posts into db
 """
 
 
-# def crawl_thread(board, thread_number):
-#     chan_client = ChanClient()
-#     thread_data = chan_client.get_thread(board, thread_number)
-
-#     logger.info(f"Thread: {board}/{thread_number}/:\n{thread_data}")
-
-#     # really soould use a connection pool
-#     conn = psycopg2.connect(dsn=DATABASE_URL)
-
-#     cur = conn.cursor()
-#     # now insert into db
-#     # iterate through the thread data and get all the post data
-#     for post in thread_data["posts"]:
-#         post_number = post["no"]
-
-#         q = "INSERT INTO posts (board, thread_number, post_number, data) VALUES (%s, %s, %s, %s) RETURNING id"
-#         cur.execute(q, (board, thread_number, post_number, post))
-#         # commit our insert to the database.
-#         conn.commit()
-
-#         # it's often useful to know the id of the newly inserted
-#         # row. This is so you can launch other jobs that might
-#         # do additional processing.
-#         # e.g., to classify the toxicity of a post
-#         db_id = cur.fetchone()[0]
-#         logging.info(f"Inserted DB id: {db_id}")
-
-#     # close cursor connection
-#     cur.close()
-#     # close connection
-#     conn.close()
-
 def crawl_thread(board, thread_number):
     chan_client = ChanClient()
     thread_data = chan_client.get_thread(board, thread_number)
